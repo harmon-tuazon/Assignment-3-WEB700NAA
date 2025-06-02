@@ -89,4 +89,4 @@ class legoData {
 
 
 
-module.exports = {legoData}
+module.exports = legoData;
