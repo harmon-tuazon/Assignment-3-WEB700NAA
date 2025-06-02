@@ -1,12 +1,14 @@
 /********************************************************************************
-* WEB700 – Assignment 02
+* WEB700 – Assignment 03
 *
 * I declare that this assignment is my own work in accordance with Seneca's
 * Academic Integrity Policy:
 *
 * https://www.senecapolytechnic.ca/about/policies/academic-integrity-policy.html
 *
-* Name: Harmon Tuazon Student ID: 165229220 Date: May 20,2025
+* Name: Harmon Tuazon Student ID: 165229220 Date: 06-02-2025
+*
+* Published URL: https://assignment-3-web-700-naa.vercel.app/
 *
 ********************************************************************************/
 
