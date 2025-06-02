@@ -19,6 +19,9 @@ const app = express()
 const path = require('path');
 const HTTP_PORT = process.env.PORT || 8080;
 
+app.set('views', __dirname + '/views');
+app.use(express.static(__dirname + '/public'));
+
 
 //http://localhost:8080/
 app.get("/", (req, res) => {
