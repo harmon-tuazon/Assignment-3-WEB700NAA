@@ -1,12 +1,12 @@
 /********************************************************************************
-* WEB700 – Assignment 03
+* WEB700 – Assignment 04
 *
 * I declare that this assignment is my own work in accordance with Seneca's
 * Academic Integrity Policy:
 *
 * https://www.senecapolytechnic.ca/about/policies/academic-integrity-policy.html
 *
-* Name: Harmon Tuazon Student ID: 165229220 Date: 06-02-2025
+* Name: Harmon Tuazon Student ID: 165229220 Date: 06-29-2025
 *
 * Published URL: https://assignment-3-web-700-naa.vercel.app/
 *
@@ -61,6 +61,25 @@ app.get("/lego/sets/:set_num", async (req, res) => {
     } catch (error) {
         res.status(404).sendFile(`Error: ${error.message}`).sendFile((path.join(__dirname, '/views/about.html')));
     }
+});
+
+//http://localhost:8080/lego/add-test
+app.get('/lego/add-test', (req, res) => {
+  let testSet = {
+    set_num: "123",
+    name: "testSet name",
+    year: "2024",
+    theme_id: "366",
+    num_parts: "123",
+    img_url: "https://fakeimg.pl/375x375?text=[+Lego+]"
+  };
+
+  try {
+    legoData.addSet(testSet);
+    res.redirect('/lego/sets');
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
 });
 
 

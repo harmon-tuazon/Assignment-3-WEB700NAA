@@ -1,0 +1,85 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400;700&display=swap');
+
+/* Global Styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #f7f8f8, #acbb78);
+    background-size: cover;
+    min-height: 100vh;
+}
+
+/* Navbar and Hero Section with bg-light */
+.bg-light {
+    background: linear-gradient(to right, #ffffff, #e6e6e6);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar Brand Text */
+.navbar-light .navbar-brand {
+    font-family: 'Orbitron', sans-serif;
+    color: #1a237e;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Navigation Links */
+.nav-link {
+    font-family: 'Orbitron', sans-serif;
+    color: #2e3b4e !important;
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #f57c00 !important;
+    text-shadow: 1px 1px 2px rgba(255, 140, 0, 0.5);
+}
+
+/* Headings h1 to h6 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+    color: #263238;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Tables - style odd rows */
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 90%;
+    margin-bottom: 2rem;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: center;
+}
+
+table tr:nth-child(odd) td {
+    background: linear-gradient(to right, #fceabb, #f8b500);
+}
+
+/* Lists */
+ul, ol {
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+li {
+    padding: 5px 0;
+}
+
+/* General Anchor Styling */
+a {
+    color: #1565c0;
+    text-shadow: 0.5px 0.5px rgba(0, 0, 0, 0.1);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ef6c00;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+}

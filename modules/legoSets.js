@@ -84,11 +84,19 @@ class legoData {
       }
     });
   }
+
+  addSet(newSet={}) {
+    return new Promise((resolve, reject) => {
+      const foundSet = this.sets.find(set => set.set_num === newSet.set_num);
+
+      if (foundSet){
+        reject("Set already exists")
+      } else {
+        this.sets.push(newSet)
+        resolve()
+      }
+    })
+  }
 }
-
-
-
-
-
 
 module.exports = legoData;
