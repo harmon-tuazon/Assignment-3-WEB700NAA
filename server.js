@@ -6,7 +6,7 @@
 *
 * https://www.senecapolytechnic.ca/about/policies/academic-integrity-policy.html
 *
-* Name: Harmon Tuazon Student ID: 165229220 Date: 06-29-2025
+* Name: Harmon Tuazon Student ID: 165229220 Date: 07-02 -2025
 *
 * Published URL: https://assignment-3-web-700-naa.vercel.app/
 *
