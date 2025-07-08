@@ -11,53 +11,53 @@
 
 <body>
 	<%- include('partials/navbar', {page: '/addSet'}) %>
-    
+
 	<br />
 
-	<div class="container">
+	<div class="container bg-dark">
 		<div class="row">
-			<main class="col-md-12">
+			<main class="bg-light col-md-12">
 
-             <div class="card bg-base-200  max-w-[700px] mx-auto p-5 mt-6">
+             <div class="card bg-base-200 p-4 mx-auto" style="max-width: 50vw;">
 
                 <form method="post" action="/lego/addSet">
-                    <div class="form-control">
-                        <label class="label" for="name">
+                    <div class="mb-3">
+                        <label class="form-label" for="name">
                             <span class="label-text">Name</span>
                         </label>
-                        <input type="text" name="name" id="name" placeholder="Type here" class="input input-bordered" required />
+                        <input type="text" name="name" id="name" placeholder="Type here" class="input input-bordered form-control" required />
                     </div>
-                    <div class="form-control">
-                        <label class="label" for="year">
+                    <div class="mb-3">
+                        <label class="form-label" for="year">
                             <span class="label-text">Year</span>
                         </label>
-                        <input type="number" name="year" id="year" placeholder="2025" class="input input-bordered" required />
+                        <input type="number" name="year" id="year" placeholder="2025" class="input input-bordered form-control" required />
                     </div>
-                     <div class="form-control" for="num_parts">
-                        <label class="label">
+                     <div class="mb-3" for="num_parts">
+                        <label class="form-label">
                             <span class="label-text">Num_Parts</span>
                         </label>
-                        <input type="number" name="num_parts" id="num_parts" placeholder="2025" class="input input-bordered" required />
+                        <input type="number" name="num_parts" id="num_parts" placeholder="Type Here" class="input input-bordered form-control" required />
                     </div>
-                    <div class="form-control" for="img_url">
-                        <label class="label">
+                    <div class="mb-3" for="img_url">
+                        <label class="form-label">
                             <span class="label-text">Img_Url</span>
                         </label>
-                        <input type="url" name="img_url" id="img_url" placeholder="Place Url" class="input input-bordered" required />
+                        <input type="url" name="img_url" id="img_url" placeholder="Place Url" class="input input-bordered form-control" required />
                     </div>
-                    <div class="form-control">
-                        <label class="label" for="theme_id">
+                    <div class="mb-3">
+                        <label class="form-label" for="theme_id">
                             <span class="label-text">Theme_Id</span>
                         </label>
-                        <select name="theme_id" id="theme_id" class="select select-bordered w-full" required>
+                        <select name="theme_id" id="theme_id" class="select select-bordered w-full form-control" required>
                             <option>TODO</option>
                         </select>
                     </div>
-                    <div class="form-control">
-                        <label class="label" for="set_num">
+                    <div class="mb-3">
+                        <label class="form-label" for="set_num">
                             <span class="label-text">Set_Num</span>
                         </label>
-                        <input type="text" name="set_num" id="set_num" placeholder="Type here" class="input input-bordered" required />
+                        <input type="text" name="set_num" id="set_num" placeholder="Type here" class="input input-bordered form-control" required />
                     </div>
                     <div class="form-control mt-6">
                         <button class="btn btn-success">Submit</button>
