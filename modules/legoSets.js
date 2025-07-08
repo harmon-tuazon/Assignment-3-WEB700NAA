@@ -1,20 +1,21 @@
 /********************************************************************************
-* WEB700 – Assignment 03
+* WEB700 – Assignment 05
 *
 * I declare that this assignment is my own work in accordance with Seneca's
 * Academic Integrity Policy:
 *
 * https://www.senecapolytechnic.ca/about/policies/academic-integrity-policy.html
 *
-* Name: Harmon Tuazon Student ID: 165229220 Date: 06-02-2025
+* Name: Harmon Tuazon Student ID: 165229220 Date: 07-08-2025
 *
 * Published URL: https://assignment-3-web-700-naa.vercel.app/
 *
 ********************************************************************************/
 
 class legoData {
-  constructor(sets = []) {
+  constructor(sets = [], themes = []) {
     this.sets = sets;
+    this.themes = themes;
   }
 
   initialize() {
@@ -24,6 +25,7 @@ class legoData {
         const themeData = require("../data/themeData");
 
         this.sets = [];
+        this.themes = [...themeData];
 
         setData.forEach(set => {
           let themeSet = themeData.find(theme => theme.id === set.theme_id);
@@ -97,6 +99,32 @@ class legoData {
       }
     })
   }
+
+
+
+  getAllThemes() {
+    return new Promise((resolve, reject) => {
+      if (this.themes.length === 0) {
+        reject("No themes found. Did you run initialize()?");
+      } else {
+        resolve(this.themes);
+      }
+    }) 
+};
+
+  getThemeById(id) {
+    return new Promise((resolve, reject) => {
+      const foundTheme = this.themes.find(theme => theme.id === id);
+
+      if (foundTheme) {
+        resolve(foundTheme);
+      } else {
+        reject("Unable to find theme with'" + id + "'");
+      }
+    });
+  }
+
+
 }
 
 module.exports = legoData;
