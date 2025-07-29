@@ -105,18 +105,23 @@ app.get("/lego/deleteSet/:set_num", async (req,res)=>{
 });
 
 
+let initialized = false;
 
-//makes an the application listen for requests
-async function listenChecker() {
-    try{
-        await legoData.initialize();
-        app.listen(HTTP_PORT, () => {
-            console.log('Server started....')
-        })
-    } 
-    
-    catch(error){
-    console.log(error.message)
-    }
+async function initialize() {
+  if (!initialized) {
+    await legoData.initialize();
+    initialized = true;
+    console.log('LegoData initialized');
+  }
 }
-listenChecker()
+
+
+module.exports = async (req, res) => {
+  try {
+    await initialize();    
+    app(req, res);         
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+};
