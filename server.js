@@ -74,7 +74,7 @@ app.get('/lego/addSet', async (req, res) => {
       themes = await legoData.getAllThemes()
       if (themes) {
          res.render("addSet", {themes: themes});
-      }
+      } 
     } catch (err) {
         res.status(404).render("404", {message: err});
     }
@@ -85,8 +85,8 @@ app.post('/lego/addSet', async (req, res) => {
     const setData = req.body
     try {
         newSet = await legoData.addSet(setData);
-        if (newSet && newSet.set_num ){
-            res.redirect(`/lego/sets/${newSet.set_num}`);
+        if (newSet){
+            res.redirect('/lego/sets');
         } 
     } catch (err) {
         res.status(500).render("500", {message: err});
@@ -105,23 +105,18 @@ app.get("/lego/deleteSet/:set_num", async (req,res)=>{
 });
 
 
-let initialized = false;
 
-async function initialize() {
-  if (!initialized) {
-    await legoData.initialize();
-    initialized = true;
-    console.log('LegoData initialized');
-  }
+//makes an the application listen for requests
+async function listenChecker() {
+    try{
+        await legoData.initialize();
+        app.listen(HTTP_PORT, () => {
+            console.log('Server started....')
+        })
+    } 
+    
+    catch(error){
+    console.log(error.message)
+    }
 }
-
-
-module.exports = async (req, res) => {
-  try {
-    await initialize();    
-    app(req, res);         
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Internal Server Error');
-  }
-};
+listenChecker()
