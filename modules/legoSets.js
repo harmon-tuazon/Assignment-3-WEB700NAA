@@ -19,11 +19,11 @@ const Sequelize = require('sequelize');
 class legoData {
   constructor() {
     this.sequelize = new Sequelize(
-      'SenecaDB',
-      'neondb_owner',
-      'npg_yavR61PATUdK',
+      process.env.PGDATABASE,
+      process.env.PGUSER,
+      process.env.PGPASSWORD,
       {
-        host: 'ep-super-hat-a8gg7f6x-pooler.eastus2.azure.neon.tech',
+        host: process.env.PGHOST,
         dialect: 'postgres',
         port: 5432, 
         dialectOptions: {
