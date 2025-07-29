@@ -105,7 +105,7 @@ app.get("/lego/deleteSet/:set_num", async (req,res)=>{
 });
 
 
-/*
+
 
 //makes an the application listen for requests
 async function listenChecker() {
@@ -121,20 +121,3 @@ async function listenChecker() {
     }
 }
 listenChecker()
-*/
-
-let initialized = false;
-
-module.exports = async (req, res) => {
-  try {
-    if (!initialized) {
-      await legoData.initialize();
-      initialized = true;
-      console.log("LEGO Data initialized on first request.");
-    }
-    app(req, res); 
-  } catch (err) {
-    console.error("Initialization error:", err);
-    res.status(500).send("Server initialization failed.");
-  }
-};
