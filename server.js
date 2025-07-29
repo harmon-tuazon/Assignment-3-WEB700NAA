@@ -49,8 +49,8 @@ app.get("/lego/sets", async (req, res) => {
             sets = await legoData.getAllSets();
         }
          res.render("sets", {sets}); // send response to client
-    } catch (error) {
-        res.status(404).send(`Error: ${error.message}`).render("404");
+    } catch (err) {
+        res.render("404", {message: err}); 
     }
 });
 
@@ -63,14 +63,21 @@ app.get("/lego/sets/:set_num", async (req, res) => {
         }
 
          res.render("set", {set: sets}); // send response to client
-    } catch (error) {
-        res.status(404).send(`Error: ${error.message}`).render("404");
+    } catch (err) {
+        res.render("404", {message: err}); 
     }
 });
 
 //http://localhost:8080/lego/addSet
-app.get('/lego/addSet', (req, res) => {
-      res.render("addSet")
+app.get('/lego/addSet', async (req, res) => {
+    try{
+      themes = await legoData.getAllThemes()
+      if (themes) {
+         res.render("addSet", {themes: themes});
+      }
+    } catch (err) {
+        res.status(404).render("404", {message: err});
+    }
 });
 
 //http://localhost:8080/lego/addSet
@@ -78,16 +85,24 @@ app.post('/lego/addSet', async (req, res) => {
     const setData = req.body
     try {
         newSet = await legoData.addSet(setData);
-        if (newSet){
-            res.redirect('/lego/sets');
-        } else {
-            res.status(400).send('Set could not be added.');
-        }
-    } catch (error) {
-        res.status(404).send(`Error: ${error.message}`).render("404");
+        if (newSet && newSet.set_num ){
+            res.redirect(`/lego/sets/${newSet.set_num}`);
+        } 
+    } catch (err) {
+        res.status(500).render("500", {message: err});
     }
 });
 
+
+//http://localhost:8080/lego/deleteSet/:set_num
+app.get("/lego/deleteSet/:set_num", async (req,res)=>{
+       try{
+          await legoData.deleteSetByNum(req.params.set_num);
+          res.redirect("/lego/sets");
+       }catch(err){
+          res.status(500).render("500", {message: err});
+       }
+});
 
 
 

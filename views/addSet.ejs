@@ -50,7 +50,11 @@
                             <span class="label-text">Theme_Id</span>
                         </label>
                         <select name="theme_id" id="theme_id" class="select select-bordered w-full form-control" required>
-                            <option>TODO</option>
+                            <% themes.forEach(theme=>{ %>
+                                <option value="<%= theme.id %>">
+                                    <%= theme.name %>
+                                </option>
+                            <% }) %> 
                         </select>
                     </div>
                     <div class="mb-3">
